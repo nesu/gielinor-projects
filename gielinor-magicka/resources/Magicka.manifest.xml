@@ -1,0 +1,17 @@
+<manifest>
+    <main-class>magicka.Boot</main-class>
+    <name>Magicka</name>
+    <tag-line>.</tag-line>
+    <description>.</description>
+    <version>1.0</version>
+    <compatibility>
+        <game>OSRS</game>
+    </compatibility>
+    <categories>
+        <category>OTHER</category>
+    </categories>
+    <internal-id>lt.monad.gielinor.gielinor-magicka</internal-id>
+    <open-source>true</open-source>
+    <hidden>false</hidden>
+    <access>public</access>
+</manifest>
