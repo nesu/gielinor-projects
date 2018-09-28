@@ -25,6 +25,7 @@ hs_err_pid*
 # Project files
 .idea*
 .gradle*
-build*
+build/*
+*/build/*
 
 gradlew.bat

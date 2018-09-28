@@ -1,1 +1,1 @@
-include('automata-library', 'gielinor-trees', 'gielinor-magicka')
+include('automata-library', 'automata-utility-runecrafting')

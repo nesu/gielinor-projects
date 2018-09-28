@@ -3,8 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "lt.monad"
 version = "1.0"
 
-var DEFAULT_COPY_DIR = "C:\\.dev\\rune.d\\built"
-
 buildscript {
     repositories { mavenCentral() }
     dependencies {  classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.70") }
@@ -29,7 +27,6 @@ subprojects {
     }
 
     extra.set("export", true)
-    extra.set("copy", false)
 }
 
 project(":automata-library") {
@@ -37,16 +34,12 @@ project(":automata-library") {
     dependencies { compile(files("C:\\Program Files (x86)\\RuneMate\\RuneMate.jar")) }
 }
 
-project(":gielinor-trees") {
-    description = "Does farming tree runs"
-    dependencies { compile(project(":automata-library")) }
-    extra.set("copy", true)
-}
-
-project(":gielinor-magicka") {
-    description = "Magic training using various methods"
-    dependencies { compile(project(":automata-library")) }
-    extra.set("copy", true)
+project(":automata-utility-runecrafting") {
+    description = "Library that contains functionality for runecrafting"
+    dependencies {
+        compile(project(":automata-library"))
+        compile(files("C:\\Program Files (x86)\\RuneMate\\RuneMate.jar"))
+    }
 }
 
 subprojects {
@@ -59,18 +52,6 @@ subprojects {
 
             from(sources)
             with(tasks["jar"] as CopySpec)
-        })
-    }
-
-    if (extra.get("copy") as Boolean) {
-        tasks.getByName("build").finalizedBy(task("copy_jar") {
-            doLast {
-                println("Copying project ${project.name} to $DEFAULT_COPY_DIR.")
-                copy {
-                    from("build/libs/${project.name}-export.jar")
-                    into(DEFAULT_COPY_DIR)
-                }
-            }
         })
     }
 }
