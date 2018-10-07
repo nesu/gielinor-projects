@@ -5,6 +5,14 @@ import com.runemate.game.api.script.framework.listeners.SkillListener
 import com.runemate.game.api.script.framework.listeners.events.SkillEvent
 import lt.monad.framework.automata.util.DEBUG
 
+/**
+ * [SkillOverlay] utilizes already created [RectangleOverlay] object by appending new
+ * rectangles. Listens for skills experience and level changes and outputs them accordingly.
+ *
+ * [SkillOverlay] must be added to event dispatcher.
+ * @param[overlays] - already created [RectangleOverlay] object.
+ * @param[skills] - array of [Skill] types which will be tracked.
+ */
 class SkillOverlay(private val overlays: RectangleOverlay, vararg skills: Skill) : SkillListener
 {
     private val experiences = mutableMapOf<String, Int>()

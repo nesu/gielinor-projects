@@ -17,7 +17,7 @@ class OverlayManager : ActionListener
 {
     private val overlay: Overlay = Overlay()
     private val processId = Environment.getRuneScapeProcessId().toInt()
-    private val timer = Timer(25, this)
+    private val timer = Timer(41, this)
     private var hwnd: WinDef.HWND? = null
 
 

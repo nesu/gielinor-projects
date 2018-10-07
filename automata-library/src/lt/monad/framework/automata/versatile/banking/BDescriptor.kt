@@ -53,7 +53,34 @@ abstract class BDescriptor
     }
 
     /**
+     * Build banking request adjusted to current object.
+     * If bank interface is not visible, provided [Node] object
+     * will be executed.
      *
+     * @param interact - Provided [Branch] or [Leaf] of interaction handling
+     * with specific bank.
+     */
+    fun build(interact: Node): Node
+    {
+        if (!validate())
+        {
+            if (!Bank.isOpen())
+                return interact
+
+            return execute()
+        }
+        else if(this is BFunctional)
+        {
+            if (!completed())
+                return execute()
+        }
+
+        DEBUG("[BDescriptor] Bank process builder will return idle leaf.")
+        return Idle.self
+    }
+
+    /**
+     * ???
      */
     fun execute(): Node = object : Branch()
     {

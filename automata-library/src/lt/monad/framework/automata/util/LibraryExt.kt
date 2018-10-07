@@ -6,13 +6,18 @@
 package lt.monad.framework.automata.util
 
 import com.runemate.game.api.hybrid.Environment
+import com.runemate.game.api.hybrid.entities.Actor
+import com.runemate.game.api.hybrid.entities.Npc
+import com.runemate.game.api.hybrid.entities.Player
 import com.runemate.game.api.hybrid.entities.details.Locatable
 import com.runemate.game.api.hybrid.local.hud.interfaces.Openable
+import com.runemate.game.api.hybrid.local.hud.interfaces.SpriteItem
 import com.runemate.game.api.hybrid.region.Players
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 import com.runemate.game.api.script.Execution
 import java.util.regex.Pattern
 
+// TODO: Refactor code.
 /* ------------------------------ ------------------------------ */
 // RuneMate logging functions.
 /* ------------------------------ ------------------------------ */
@@ -91,3 +96,13 @@ fun Openable.switch(): Boolean = when(this.isOpen) {
     false -> { open() }
     else -> { true }
 }
+
+/* ------------------------------ ------------------------------ */
+// Attribute extension.
+/* ------------------------------ ------------------------------ */
+
+val SpriteItem.named: String
+    get() = definition.name
+
+val Npc.named: String
+    get() = definition.name

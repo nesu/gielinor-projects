@@ -4,6 +4,10 @@ import lt.monad.framework.automata.util.DEBUG
 import lt.monad.framework.automata.util.Deferred
 import java.awt.*
 
+/**
+ * Creates rectangles at top-right of the screen. Calculates position of new
+ * rectangles.
+ */
 class RectangleOverlay
 {
     private val rectangles = mutableListOf<RectangleObject>()
@@ -41,6 +45,9 @@ class RectangleOverlay
         rectangle.create(next())
     }
 
+    /**
+     * Class representing rectangle object.
+     */
     class RectangleObject
     {
         lateinit var label: Deferred<String>

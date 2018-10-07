@@ -4,6 +4,9 @@ import com.runemate.game.api.hybrid.input.Mouse
 import java.awt.Color
 import java.awt.Graphics2D
 
+/**
+ * Renders mouse cursor and its' trail.
+ */
 class MouseOverlay
 {
     private var trailing = MouseTrailOverlay()
